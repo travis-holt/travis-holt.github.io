@@ -3,3 +3,4 @@ node_modules/
 .qa/
 package-lock.json
 deploy.sh
+CLAUDE.md
