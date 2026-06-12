@@ -172,17 +172,7 @@ if (grid) grid.querySelectorAll('.reel-media').forEach((media) => {
 });
 
 /* ------------------------------------------------------------
-   5) Hero ad — nudge autoplay (some browsers need the call)
-------------------------------------------------------------- */
-const hero = document.getElementById('heroVideo');
-if (hero) {
-  const tryPlay = () => { const p = hero.play(); if (p && p.catch) p.catch(() => {}); };
-  if (hero.readyState >= 2) tryPlay();
-  hero.addEventListener('canplay', tryPlay, { once: true });
-}
-
-/* ------------------------------------------------------------
-   5b) Cursor-following accent glow (desktop only, signature detail)
+   5) Cursor-following accent glow (desktop only, signature detail)
 ------------------------------------------------------------- */
 const fineHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;

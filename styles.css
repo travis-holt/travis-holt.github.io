@@ -22,6 +22,13 @@
   --accent-soft:#f0e2d1;  --accent-soft:oklch(0.93 0.04 60);
   --accent-glow:rgba(194,99,47,0.22); --accent-glow:oklch(0.62 0.16 50 / 0.22);
 
+  /* warm gradient (site terracotta → amber) — emphasis text, CTAs, the hero animation */
+  --a1: #c2632f; --a2: #e89a3c;
+  --grad: linear-gradient(110deg, var(--a1), var(--a2));
+  --accent-line: rgba(194,99,47,0.34);
+  /* surfaces used by the hero animation */
+  --surface: #ffffff; --surface-2: #fbf7f0; --ink-faint: #9c8e7e; --line: var(--rule);
+
   --maxw: 1140px;
 
   /* spacing scale (8px rhythm) + consistent section padding */
@@ -29,9 +36,10 @@
   --section-y: 64px;       /* mobile */
   --section-y-lg: 108px;   /* desktop, set in media query */
 
-  --sans:  'Geist', system-ui, -apple-system, sans-serif;
-  --serif: 'Instrument Serif', Georgia, serif;
-  --mono:  'Geist Mono', ui-monospace, 'SFMono-Regular', monospace;
+  /* iPhone / San Francisco system font, everywhere */
+  --sans:  -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  --serif: var(--sans);
+  --mono:  -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -93,7 +101,8 @@ body.glow-on .cursor-glow { opacity: 1; }
 .kicker::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
 h1, h2, h3 { font-family: var(--sans); font-weight: 800; line-height: 1.0; letter-spacing: -0.035em; }
-.serif { font-family: var(--serif); font-weight: 400; font-style: italic; letter-spacing: -0.01em; color: var(--accent); }
+/* emphasis words: warm gradient text (replaces the old serif italic) */
+.serif { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-style: normal; letter-spacing: -0.02em; }
 
 /* live dot */
 .live-dot {
@@ -124,8 +133,8 @@ h1, h2, h3 { font-family: var(--sans); font-weight: 800; line-height: 1.0; lette
 }
 .btn:active { transform: translateY(1px); }
 
-.btn-accent { background: var(--accent); color: var(--paper); }
-.btn-accent:hover { background: var(--accent-ink); }
+.btn-accent { background: var(--grad); color: #fff; box-shadow: 0 8px 22px rgba(194,99,47,0.30); }
+.btn-accent:hover { filter: brightness(1.04); transform: translateY(-1px); box-shadow: 0 12px 28px rgba(194,99,47,0.40); }
 
 .btn-ink { background: var(--ink); color: var(--paper); }
 .btn-ink:hover { background: #000; }
@@ -151,23 +160,21 @@ h1, h2, h3 { font-family: var(--sans); font-weight: 800; line-height: 1.0; lette
 .cta-row { margin-top: 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 .cta-note { font-family: var(--mono); font-size: 0.76rem; color: var(--muted); }
 
-.hero-reel { max-width: 320px; width: 100%; justify-self: center; }
-.hero-reel-frame {
-  aspect-ratio: 9 / 16;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--card);
-  border: 1px solid var(--rule);
-  box-shadow: 0 34px 60px -34px oklch(0.16 0.012 80 / 0.45);
-}
-.hero-reel-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.feed-meta {
-  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted); margin-top: 13px;
-  display: flex; align-items: center; gap: 9px;
-}
-.feed-meta a { color: var(--accent-ink); text-decoration: none; border-bottom: 1px solid oklch(0.42 0.14 50 / 0.35); }
-.feed-meta a:hover { border-bottom-color: currentColor; }
+/* hero animation (the ported A→B→D performance-creative story) */
+.col-anim { display: flex; justify-content: center; }
+.anim-wrap { width: 100%; max-width: 460px; padding-bottom: 38px; }
+.anim-stage-wrap { position: relative; width: 100%; aspect-ratio: 1 / 1; }
+.anim-card { position: absolute; inset: 0; overflow: hidden; background: var(--surface); }
+.anim-stage { position: absolute; top: 0; left: 0; width: 600px; height: 600px; transform-origin: top left; }
+.anim-layer { position: absolute; inset: 0; pointer-events: none; }
+.anim-dots { position: absolute; bottom: -28px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+.anim-dots span { height: 6px; width: 6px; border-radius: 6px; background: var(--line); transition: width .4s, background .4s; }
+
+/* scene primitives (shared by all three acts) */
+.s-scene { position: absolute; inset: 0; color: var(--ink); font-family: var(--sans); font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+.s-eyebrow { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+.s-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 1px 2px rgba(60,42,28,.05), 0 10px 26px rgba(60,42,28,.06); }
+.s-pill { display: inline-flex; align-items: center; gap: 7px; border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 600; white-space: nowrap; }
 
 /* ============================================================
    THE WORK — reel grid
@@ -273,8 +280,9 @@ h1, h2, h3 { font-family: var(--sans); font-weight: 800; line-height: 1.0; lette
 @media (min-width: 900px) {
   body { font-size: 18px; }
   .hero { padding: 56px 0 96px; }
-  .hero-grid { grid-template-columns: 1.12fr 0.88fr; gap: 60px; }
-  .hero-reel { justify-self: end; max-width: 340px; }
+  .hero-grid { grid-template-columns: 1.02fr 1fr; gap: 64px; }
+  .col-anim { justify-content: flex-end; }
+  .anim-wrap { max-width: 500px; }
   .cta-row { flex-direction: row; align-items: center; gap: 22px; }
   .feed { padding: var(--section-y-lg) 0; }
   .process { padding: var(--section-y-lg) 0; }

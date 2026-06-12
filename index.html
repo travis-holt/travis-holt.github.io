@@ -13,10 +13,7 @@
   <meta property="og:description" content="Hook-first UGC ads for health &amp; wellness DTC. Built for Meta &amp; TikTok. New variations in 48–72h." />
   <meta property="og:type" content="website" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
-
+  <!-- iPhone / San Francisco system font — zero font fetch, native on Apple devices -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body id="top">
@@ -48,20 +45,9 @@
         </div>
       </div>
 
-      <figure class="hero-reel reveal">
-        <div class="hero-reel-frame">
-          <video
-            id="heroVideo"
-            src="videos/nerve-patch.mp4"
-            poster="videos/nerve-patch.jpg"
-            muted loop autoplay playsinline preload="metadata"
-            webkit-playsinline></video>
-        </div>
-        <figcaption class="feed-meta">
-          <span class="live-dot" aria-hidden="true"></span>
-          <a href="https://mypatchestore.com" target="_blank" rel="noopener">mypatches</a>&nbsp;· nerve relief patch
-        </figcaption>
-      </figure>
+      <div class="col-anim reveal">
+        <div class="anim-wrap" id="heroAnim" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
@@ -145,5 +131,6 @@
   </footer>
 
   <script src="script.js" defer></script>
+  <script src="hero-anim.js" defer></script>
 </body>
 </html>
