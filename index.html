@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Progressive enhancement: only hide-for-reveal when JS is alive, so a
+       script/font stall can never leave the page blank. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <title>UGC Ad Creative — Built to Beat Your Control</title>
+  <meta name="description" content="Hook-first, AI-assisted UGC ad creative for health &amp; wellness DTC brands. Built for Meta &amp; TikTok, designed to work on mute. New variations in 48–72h." />
+
+  <meta property="og:title" content="UGC Ad Creative — Built to Beat Your Control" />
+  <meta property="og:description" content="Hook-first UGC ads for health &amp; wellness DTC. Built for Meta &amp; TikTok. New variations in 48–72h." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ===================== STICKY HEADER — wordmark + persistent CTA ===================== -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="#top">
+        <span class="wordmark-dot" aria-hidden="true"></span>Travis Holt<span class="wordmark-tag">— UGC ad creative</span>
+      </a>
+      <a class="btn btn-accent btn-sm" href="#say-hi" data-dm>Free sample</a>
+    </div>
+  </header>
+
+  <!-- ===================== HERO — open with an ad already playing ===================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker"><span class="n">UGC</span> Ad creative — health &amp; wellness DTC</p>
+        <h1 class="hero-title reveal">Creative built to <span class="serif">beat your&nbsp;control.</span></h1>
+        <p class="hero-lede reveal">
+          Hook-first UGC ads for Meta &amp; TikTok — AI avatars, voice and editing.
+          New variations in <strong>48–72 hours.</strong>
+        </p>
+        <div class="cta-row reveal">
+          <a class="btn btn-accent" href="#say-hi" data-dm>Get a free sample on your product</a>
+          <span class="cta-note">Send a product page. No call, no commitment.</span>
+        </div>
+      </div>
+
+      <figure class="hero-reel reveal">
+        <div class="hero-reel-frame">
+          <video
+            id="heroVideo"
+            src="videos/nerve-patch.mp4"
+            poster="videos/nerve-patch.jpg"
+            muted loop autoplay playsinline preload="metadata"
+            webkit-playsinline></video>
+        </div>
+        <figcaption class="feed-meta">
+          <span class="live-dot" aria-hidden="true"></span>
+          <a href="https://mypatchestore.com" target="_blank" rel="noopener">mypatches</a>&nbsp;· nerve relief patch
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===================== THE WORK ===================== -->
+    <section class="feed" id="work">
+      <div class="wrap">
+        <header class="feed-head">
+          <p class="kicker reveal"><span class="n">01</span> The work</p>
+          <h2 class="feed-title reveal">The work, the way it <span class="serif">runs.</span></h2>
+          <p class="feed-sub reveal">Built to work on mute. Tap any ad to play it.</p>
+        </header>
+
+        <!-- Tiles injected by script.js from the REELS config -->
+        <div class="reel-grid" id="reelGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================== PROCESS ===================== -->
+    <section class="process" id="process">
+      <div class="wrap">
+        <p class="kicker reveal"><span class="n">02</span> Process</p>
+        <h2 class="process-title reveal">From product page to <span class="serif">launch-ready.</span></h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-k">Step 01</span>
+            <h3>You send your product page</h3>
+            <p>One link is the whole brief to get started.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-k">Step 02</span>
+            <h3>I script &amp; produce the hooks</h3>
+            <p>AI avatars and voice, multiple angles, edited for the feed.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-k">Step 03</span>
+            <h3>You get launch-ready cuts</h3>
+            <p>Straight into Meta &amp; TikTok in 48–72 hours.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== OFFER ===================== -->
+    <section class="offer" id="offer">
+      <div class="wrap">
+        <p class="kicker reveal"><span class="n">03</span> The retainer</p>
+        <div class="offer-card reveal">
+          <h2 class="offer-title">A steady pipeline of creative <span class="serif">to test.</span></h2>
+          <ul class="offer-list">
+            <li><strong>~10 launch-ready creatives</strong> every month</li>
+            <li>Multiple hook variations per concept</li>
+            <li>Built for testing — more angles, faster learnings</li>
+            <li>Hook-first and native to Meta &amp; TikTok</li>
+          </ul>
+          <a class="btn btn-ink" href="#say-hi" data-dm>Talk through your account</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== CLOSER ===================== -->
+  <section class="closer" id="say-hi">
+    <div class="wrap">
+      <p class="closer-kicker reveal">The offer, one more time</p>
+      <h2 class="closer-title reveal">Send me your <span class="serif">product.</span></h2>
+      <p class="closer-line reveal">
+        I'll make you one free ad creative. If it's not better than what
+        you're running, you've lost nothing.
+      </p>
+      <div class="dm-row reveal" id="dm-offer">
+        <a class="btn btn-accent" href="https://instagram.com/your-handle" target="_blank" rel="noopener" data-social="instagram">DM on Instagram</a>
+        <a class="btn btn-line" href="https://x.com/your-handle" target="_blank" rel="noopener" data-social="x">X / Twitter</a>
+        <a class="btn btn-line" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener" data-social="linkedin">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sitefoot">
+    <p>AI-assisted UGC ad creative · Health &amp; wellness DTC · Meta &amp; TikTok</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

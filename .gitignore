@@ -1,0 +1,4 @@
+videos/_orig/
+node_modules/
+.qa/
+package-lock.json
